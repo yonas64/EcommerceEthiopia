@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { Sidebar } from './components/Sidebar';
+import  Sidebar from './components/Sidebar';
 import { Header } from './components/Header';
 import { DashboardPage } from './components/DashboardPage';
 import { LogManagementPage } from './components/LogManagementPage';
 import { AlertsPage } from './components/AlertsPage';
+import { ReportsPage } from './components/ReportsPage';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
-  const [systemStatus, setSystemStatus] = useState<'healthy' | 'critical'>('healthy');
+  const [systemStatus, setSystemStatus] = useState<'healthy'| 'critical'>('healthy');;
 
   const renderPage = () => {
     switch (currentPage) {
@@ -20,6 +21,7 @@ export default function App() {
       case 'threat-detection':
       case 'rules':
       case 'reports':
+        return <ReportsPage />;
       case 'users':
       case 'settings':
         return (
